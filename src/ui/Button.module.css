@@ -1,0 +1,25 @@
+.btn {
+  padding: 15px;
+  margin: 10px;
+  background-color: #5f5;
+  font-size: 16px;
+  width: 100px;
+  font-family: "Sansita Swashed", cursive;
+
+  border: none;
+  border-radius: 10px;
+}
+
+.btn:hover {
+  background-color: #7f7;
+  cursor: pointer;
+}
+
+.updateBtn {
+  background-color: #ffff44;
+  /* width: 10%; */
+}
+
+.updateBtn:hover {
+  background-color: #ffff66;
+}

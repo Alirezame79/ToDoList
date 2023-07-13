@@ -1,0 +1,21 @@
+.container {
+  padding: 25px 10px;
+
+  border-bottom: 2px #f55 solid;
+  border-radius: 5px;
+}
+
+.labels {
+  margin: 10px;
+  font-size: 18px;
+}
+
+.title {
+  text-align: left;
+  margin-left: 100px;
+  color: #333;
+}
+
+.alertTxt {
+  color: red;
+}

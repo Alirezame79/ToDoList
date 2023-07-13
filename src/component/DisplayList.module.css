@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  gap: 25px;
+  margin: 0 100px;
+}
+
+.title {
+  color: #333;
+  margin-left: 10px;
+}
+
+.body {
+  margin: 25px;
+}

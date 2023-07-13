@@ -1,0 +1,24 @@
+.container {
+  background-color: #eee;
+  margin: 25px auto;
+  width: 80%;
+  text-align: center;
+
+  border: 2px #ccc solid;
+  border-radius: 15px;
+}
+
+.todoCard {
+  background-color: #ccc;
+  margin: 3px auto;
+  width: 90%;
+}
+
+.todoCard h2 {
+  margin: 10px;
+}
+
+.todoCard:hover {
+  background-color: #ddd;
+  border: 2px #ddd solid;
+}
