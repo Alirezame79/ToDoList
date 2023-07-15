@@ -7,7 +7,6 @@
 .creator {
   width: 150px;
   margin-left: 50px;
-  /* background-color: red; */
   text-align: center;
 }
 
@@ -15,5 +14,4 @@
   padding: 20px;
   width: 100%;
   text-align: center;
-  /* background-color: yellow; */
 }

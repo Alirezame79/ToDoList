@@ -1,40 +1,31 @@
-import react, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import classes from './EnterToDo.module.css';
 import Input from '../ui/Input';
 import Button from '../ui/Button';
+import TaskHook from "../context/TaskHook";
+
 
 export default function EnterToDo() {
     const [alertTxt, setAlertTxt] = useState('');
     const nameElement = useRef('');
     const taskBodyElement = useRef('');
+    const { getAllTasks, addNewTask } = TaskHook();
 
     function submitTodo() {
-
         if (nameElement.current.value === "" || taskBodyElement.current.value === "") {
             setAlertTxt("Fill the inputs!")
             return;
-        } else {
-            setAlertTxt("");
         }
 
-        fetch('http://127.0.0.1:5000/add', {
-            method: 'POST',
-            body: JSON.stringify({
-                'name': nameElement.current.value,
-                'body': taskBodyElement.current.value
-            }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then((response) => {
-            return response.json;
-        }).then((data) => {
-            console.log(data);
-        })
-
+        setAlertTxt("");
+        let task = {
+            'name': nameElement.current.value,
+            'body': taskBodyElement.current.value
+        }
+        addNewTask(task);
+        getAllTasks();
         nameElement.current.value = '';
         taskBodyElement.current.value = '';
-
     }
 
     return (

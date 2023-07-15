@@ -1,41 +1,39 @@
-import React, { useState, useEffect } from "react";
-import Button from "../ui/Button";
+import React, { useEffect } from "react";
 import Card from "../ui/Card";
 import Task from "../ui/Task";
 import classes from './DisplayList.module.css';
+import TaskHook from "../context/TaskHook";
+import Button from "../ui/Button";
 
 export default function DisplayList() {
-    const [list, setList] = useState([]);
+    const { taskList, getAllTasks } = TaskHook();
 
     useEffect(() => {
-        fetch('http://127.0.0.1:5000/all')
-            .then((response) => {
-                return response.json();
-            }).then((data) => {
-                console.log(data);
-                setList(data.map((item) => {
-                    return (
-                        <Card todo key={item.ID} >
-                            <Task task={item} />
-                        </Card>
-                    )
-                }));
-            })
+        getAllTasks()
     }, []);
+
+    function updateList() {
+        getAllTasks()
+    }
 
 
     let result;
-    if (list.length === 0) {
+    if (taskList.length === 0) {
         result = "List is empty!";
     } else {
-        result = list;
+        result = taskList.map((item) => {
+            return (
+                <Card todo key={item.ID} >
+                    <Task task={item} />
+                </Card>)
+        })
     }
 
     return (
         <>
             <div className={classes.header}>
                 <h2 className={classes.title}>Tasks List</h2>
-                {/* <Button update onClick={updateList}>Update</Button> */}
+                <Button update onClick={updateList}>Update</Button>
             </div>
             <div className={classes.body}>
                 {result}
